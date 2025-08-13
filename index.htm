@@ -189,13 +189,9 @@
     </div>
   </div>
 </div>
-<iframe
-  width="0" height="0"
-  src="https://www.youtube.com/embed/e7Shp1jM_KA?autoplay=1&loop=1&playlist=e7Shp1jM_KA"
-  frameborder="0"
-  allow="autoplay; encrypted-media"
-  style="position:absolute;visibility:hidden;">
-</iframe>
+<audio id="bgMusic" autoplay loop>
+  <source src="data:audio/mpeg;base64,PASTE_FULL_BASE64_STRING_HERE" type="audio/mpeg">
+</audio>
 
 
 
@@ -235,6 +231,22 @@ document.getElementById('visitInstagram').addEventListener('click', function(){
 document.getElementById('dmBtn').addEventListener('click', function(){
   window.open('https://www.instagram.com/direct/t/121555572567101/','_blank','noopener');
 });
+  (async () => {
+  const a = document.getElementById('bgMusic');
+  try {
+    await a.play();
+  } catch (e) {
+    const btn = document.createElement('button');
+    btn.textContent = '▶ Enable sound';
+    Object.assign(btn.style, {
+      position:'fixed', bottom:'16px', right:'16px',
+      padding:'10px 14px', borderRadius:'10px', border:'none',
+      cursor:'pointer', zIndex:99999
+    });
+    btn.onclick = async () => { try{ await a.play(); btn.remove(); }catch{} };
+    document.body.appendChild(btn);
+  }
+})();
 </script>
 
 
