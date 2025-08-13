@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Hamad Cheema</title>
+<title>Hamad Cheema -Profile</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
@@ -189,24 +189,26 @@
     </div>
   </div>
 </div>
- <iframe
-    width="0" height="0"
-    src="https://www.youtube.com/embed/e7Shp1jM_KA?autoplay=1&loop=1&playlist=e7Shp1jM_KA"
-    frameborder="0"
-    allow="autoplay"
-    allow="encrypted-media"
-    style="position:absolute;visibility:hidden;">
-  </iframe> 
-    <script>
-    // Optional: Ensure autoplay after first user interaction
-    document.addEventListener('click', function initAudio(){
-      const iframe = document.querySelector('iframe[src*="e7Shp1jM_KA"]');
-      if (iframe) {
-        iframe.src = iframe.src; // re-trigger autoplay
-        document.removeEventListener('click', initAudio);
-      }
-    });
-  </script>
+<!-- YouTube background music -->
+<iframe
+  id="bgMusic"
+  width="0" height="0"
+  src=""
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  style="position:absolute;visibility:hidden;">
+</iframe>
+
+<script>
+document.addEventListener('click', function initAudio(){
+  const iframe = document.getElementById('bgMusic');
+  if (iframe && iframe.src === "") {
+    iframe.src = "https://www.youtube.com/embed/e7Shp1jM_KA?autoplay=1&loop=1&playlist=e7Shp1jM_KA";
+    document.removeEventListener('click', initAudio);
+  }
+});
+</script>
+
 <script>
 document.addEventListener('click', function(e){
   const p = e.target.closest('.post');
