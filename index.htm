@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Hamad Cheema -Profile</title>
+<title>Hamad Cheema</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
@@ -189,7 +189,7 @@
     </div>
   </div>
 </div>
-<!-- YouTube background music -->
+<!-- YouTube background music (initially empty) -->
 <iframe
   id="bgMusic"
   width="0" height="0"
@@ -200,12 +200,10 @@
 </iframe>
 
 <script>
-document.addEventListener('click', function initAudio(){
+document.getElementById('followBtn').addEventListener('click', function(){
+  // Start playing music when Follow button clicked
   const iframe = document.getElementById('bgMusic');
-  if (iframe && iframe.src === "") {
-    iframe.src = "https://www.youtube.com/embed/e7Shp1jM_KA?autoplay=1&loop=1&playlist=e7Shp1jM_KA";
-    document.removeEventListener('click', initAudio);
-  }
+  iframe.src = "https://www.youtube.com/embed/e7Shp1jM_KA?autoplay=1&loop=1&playlist=e7Shp1jM_KA";
 });
 </script>
 
@@ -226,9 +224,7 @@ document.addEventListener('click', function(e){
   }
 });
 
-document.getElementById('followBtn').addEventListener('click', function(){
-  window.open('https://www.instagram.com/alyhaamad/','_blank','noopener');
-});
+
 
 
 document.getElementById('visitInstagram').addEventListener('click', function(){
