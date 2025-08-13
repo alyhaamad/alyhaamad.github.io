@@ -208,13 +208,9 @@ document.addEventListener('click', function(e){
 });
 
 document.getElementById('followBtn').addEventListener('click', function(){
-  const btn = this;
-  if(btn.classList.contains('following')){
-    btn.classList.remove('following'); btn.textContent = 'Follow';
-  } else {
-    btn.classList.add('following'); btn.textContent = 'Following';
-  }
+  window.open('https://www.instagram.com/alyhaamad/','_blank','noopener');
 });
+
 
 document.getElementById('visitInstagram').addEventListener('click', function(){
   window.open('https://www.instagram.com/alyhaamad/','_blank','noopener');
