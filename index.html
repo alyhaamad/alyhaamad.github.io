@@ -1,13 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hamad's Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAMMAD's Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- React & ReactDOM (CDN) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  
+  <!-- React Router -->
+  <script crossorigin src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a; /* Dark background */
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      background: linear-gradient(to right, #434343, #000000);
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #56ccf2, #2f80ed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript">
+    const { useState } = React;
+    const { HashRouter, Routes, Route, Link } = ReactRouterDOM;
+
+    function Navbar() {
+      return (
+        <nav className="flex justify-center gap-6 p-4 bg-gray-800">
+          <Link className="text-white hover:text-blue-400" to="/">Home</Link>
+          <Link className="text-white hover:text-blue-400" to="/about">About</Link>
+          <Link className="text-white hover:text-blue-400" to="/contact">Contact</Link>
+        </nav>
+      );
+    }
+
+    function Hero() {
+      return (
+        <div className="hero">
+          <h1 className="text-5xl font-bold gradient-text">Huzaif's Portfolio</h1>
+          <p className="text-gray-300 mt-4 text-lg">React + Tailwind in a single HTML file!</p>
+        </div>
+      );
+    }
+
+    function About() {
+      return (
+        <div className="section">
+          <h2 className="text-3xl font-semibold mb-2">About Me</h2>
+          <p>I am a frontend developer who loves React and Tailwind CSS.</p>
+        </div>
+      );
+    }
+
+    function Contact() {
+      return (
+        <div className="section">
+          <h2 className="text-3xl font-semibold mb-2">Contact</h2>
+          <p>Email: huzaif@example.com</p>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <HashRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </HashRouter>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
 </html>
