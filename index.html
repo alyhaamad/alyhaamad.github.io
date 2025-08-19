@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hammad | Portfolio</title>
+    <title>Hammad | Unity Game Developer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -58,15 +58,37 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Background Image Styling */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            opacity: 0.8;
+        }
+
+        /* Overlay for text readability */
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
         }
 
         /* Hero Section */
-        #home {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            flex-direction: column;
-            animation: fadeIn 2s ease-in-out;
-        }
+        #home::before { background-image: url('https://wallpapercave.com/wp/wp7427241.jpg'); }
+        #about::before { background-image: url('https://wallpapercave.com/wp/wp7322181.jpg'); }
+        #skills::before { background-image: url('https://wallpapercave.com/wp/wp7307336.jpg'); }
+        #projects::before { background-image: url('https://wallpapercave.com/wp/wp7418480.jpg'); }
+        #contact::before { background-image: url('https://wallpapercave.com/wp/wp7483584.jpg'); }
 
         #home h1 {
             font-size: 50px;
@@ -75,32 +97,8 @@
         }
 
         #home p {
-            font-size: 20px;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px cyan, 0 0 20px blue; }
-            to { text-shadow: 0 0 20px cyan, 0 0 40px blue; }
-        }
-
-        /* About Section */
-        #about {
-            background: #121212;
-        }
-
-        /* Skills Section */
-        #skills {
-            background: linear-gradient(135deg, #ff6ec4, #7873f5);
-        }
-
-        /* Projects Section */
-        #projects {
-            background: #1f1f1f;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, #00f260, #0575e6);
+            font-size: 22px;
+            font-weight: 500;
         }
 
         .btn {
@@ -119,9 +117,26 @@
             background: #00aaff;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px cyan, 0 0 20px blue; }
+            to { text-shadow: 0 0 20px cyan, 0 0 40px blue; }
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 20px;
+            max-width: 700px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #888;
         }
     </style>
 </head>
@@ -138,29 +153,44 @@
     </header>
 
     <section id="home">
-        <h1>Welcome to My World</h1>
-        <p>Anime | Code | Creativity</p>
-        <a href="#about" class="btn">Explore</a>
+        <div>
+            <h1>Welcome to My World</h1>
+            <p>Unity Game Developer | iOS & Android | Anime Lover</p>
+            <a href="#about" class="btn">Explore</a>
+        </div>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am Hammad, a passionate developer who loves anime and creative coding.</p>
+        <div>
+            <h2>About Me</h2>
+            <p>I'm Hammad, a passionate Unity Game Developer who creates high-quality iOS & Android games. I combine creativity, technology, and anime inspiration to build immersive experiences.</p>
+        </div>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <p>HTML, CSS, JavaScript, React, Node.js</p>
+        <div>
+            <h2>Skills</h2>
+            <p>Unity 3D | C# | Game Design | Mobile Optimization | UI/UX | Multiplayer Systems</p>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <p>Portfolio | Games | Web Apps</p>
+        <div>
+            <h2>Projects</h2>
+            <p>✔ Wild Animal Hunt Shooting Game<br>✔ Puzzle Adventure Games<br>✔ Multiplayer Action Games</p>
+        </div>
     </section>
 
     <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: yourname@example.com</p>
+        <div>
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:thatsmehammad@gmail.com" style="color:cyan;">thatsmehammad@gmail.com</a></p>
+            <p>Instagram: <a href="https://instagram.com/alyhaamad" style="color:cyan;" target="_blank">@alyhaamad</a></p>
+        </div>
     </section>
+
+    <footer>
+        © 2025 Hammad | All Rights Reserved
+    </footer>
 </body>
 </html>
