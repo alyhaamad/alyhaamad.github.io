@@ -1,109 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HAMMAD's Portfolio</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- React & ReactDOM (CDN) -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  
-  <!-- React Router -->
-  <script crossorigin src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js"></script>
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f172a; /* Dark background */
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      background: linear-gradient(to right, #434343, #000000);
-    }
-    .gradient-text {
-      background: linear-gradient(to right, #56ccf2, #2f80ed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamad's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 24px;
+            color: #00f0ff;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00f0ff;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        #home {
+            background: url('https://i.ibb.co/KG9K6xv/gojo.jpg') center/cover no-repeat;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        #home h2 {
+            font-size: 60px;
+            color: #00f0ff;
+            text-shadow: 0 0 15px #00f0ff;
+        }
+        #home p {
+            font-size: 22px;
+            margin-top: 20px;
+            color: #fff;
+        }
+        #about {
+            background: #111;
+            text-align: center;
+        }
+        #about h2, #skills h2, #projects h2, #contact h2 {
+            font-size: 40px;
+            color: #00f0ff;
+            margin-bottom: 20px;
+        }
+        #about p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        #skills {
+            background: url('https://i.ibb.co/bLFMQn8/solo-leveling.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+        .skill-bar {
+            width: 80%;
+            background: #222;
+            border-radius: 20px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        .bar {
+            height: 25px;
+            background: #00f0ff;
+            width: 0%;
+            transition: width 2s;
+        }
+        #projects {
+            background: #1a1a1a;
+            text-align: center;
+        }
+        .project-card {
+            background: #222;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 250px;
+        }
+        #contact {
+            background: url('https://i.ibb.co/gZWr1cS/demon-slayer.jpg') center/cover no-repeat;
+            text-align: center;
+        }
+        #contact p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+        }
+        @media(max-width: 768px) {
+            #home h2 { font-size: 40px; }
+        }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-
-  <script type="text/javascript">
-    const { useState } = React;
-    const { HashRouter, Routes, Route, Link } = ReactRouterDOM;
-
-    function Navbar() {
-      return (
-        <nav className="flex justify-center gap-6 p-4 bg-gray-800">
-          <Link className="text-white hover:text-blue-400" to="/">Home</Link>
-          <Link className="text-white hover:text-blue-400" to="/about">About</Link>
-          <Link className="text-white hover:text-blue-400" to="/contact">Contact</Link>
+    <header>
+        <h1>Hammad</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
-      );
-    }
+    </header>
 
-    function Hero() {
-      return (
-        <div className="hero">
-          <h1 className="text-5xl font-bold gradient-text">Huzaif's Portfolio</h1>
-          <p className="text-gray-300 mt-4 text-lg">React + Tailwind in a single HTML file!</p>
+    <section id="home">
+        <h2>Welcome to My World</h2>
+        <p>Anime | Code | Creativity</p>
+    </section>
+
+    <section id="about">
+        <div>
+            <h2>About Me</h2>
+            <p>Hello! I'm Hammad, a passionate developer who loves blending technology with creativity. 
+            Anime, design, and coding fuel my imagination.</p>
         </div>
-      );
-    }
+    </section>
 
-    function About() {
-      return (
-        <div className="section">
-          <h2 className="text-3xl font-semibold mb-2">About Me</h2>
-          <p>I am a frontend developer who loves React and Tailwind CSS.</p>
+    <section id="skills">
+        <div>
+            <h2>My Skills</h2>
+            <div class="skill-bar"><div class="bar" style="width: 90%;"></div></div>
+            <p>HTML</p>
+            <div class="skill-bar"><div class="bar" style="width: 80%;"></div></div>
+            <p>CSS</p>
+            <div class="skill-bar"><div class="bar" style="width: 70%;"></div></div>
+            <p>JavaScript</p>
         </div>
-      );
-    }
+    </section>
 
-    function Contact() {
-      return (
-        <div className="section">
-          <h2 className="text-3xl font-semibold mb-2">Contact</h2>
-          <p>Email: huzaif@example.com</p>
+    <section id="projects">
+        <div>
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Portfolio Site</h3>
+                <p>A responsive anime-themed portfolio website.</p>
+            </div>
+            <div class="project-card">
+                <h3>Anime API App</h3>
+                <p>Fetching anime data with style and speed.</p>
+            </div>
         </div>
-      );
-    }
+    </section>
 
-    function App() {
-      return (
-        <HashRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </HashRouter>
-      );
-    }
+    <section id="contact">
+        <div>
+            <h2>Contact</h2>
+            <p>Email: yourname@gmail.com</p>
+            <p>GitHub: github.com/yourprofile</p>
+        </div>
+    </section>
 
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
+    <footer>
+        <p>© 2025 Hammad's Portfolio</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.bar').forEach(bar => {
+                bar.style.width = bar.style.width;
+            });
+        });
+    </script>
 </body>
 </html>
